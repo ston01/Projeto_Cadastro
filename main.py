@@ -1,21 +1,24 @@
-from lib.interface import MenuPrincipal, Opção
-from lib.dado import leiaInt, leiaStr
+from lib.interface import *
+from lib.validar import *
+from lib.banco import *
 geral = []
 cadastros = {}
+criar_tabela()
 while True:
-    MenuPrincipal()
+    menuprincipal()
     escolha = leiaInt('Opção escolhida: ')
     if escolha == 1:
-        Opção('OPÇÃO 1')
-        for pessoa in geral:
-            print(f'{pessoa['Nome']} \t {pessoa['Idade']} anos')
+        cabeçalho('OPÇÃO 1')
+        pessoas = listar_usuarios()
+        for pessoa in pessoas:
+            print(f"{pessoa['nome']:.<30}{pessoa['idade']} anos")
     elif escolha == 2:
-        Opção('OPÇÃO 2')
+        cabeçalho('OPÇÃO 2')
         cadastros['Nome'] = leiaStr('Nome: ')
         cadastros['Idade'] = leiaInt('Idade: ')
-        geral.append(cadastros.copy())
+        inserir_usuario(cadastros['Nome'], cadastros['Idade'])
     elif escolha == 3:
-        Opção('Saindo do programa... Até breve!')
+        cabeçalho('Saindo do programa... Até breve!')
         break
     else:
         print('ERRO: Digite uma opção válida!')
