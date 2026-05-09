@@ -1,34 +1,37 @@
 import sqlite3
 def conectar():
-    con = sqlite3.connect('dados.db')
-    con.row_factory = sqlite3.Row
-    return con
+    conn = sqlite3.connect('dados.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 
 def criar_tabela():
-    con = conectar()
-    cursor = con.cursor()
+    conn = conectar()
+    cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS usuarios (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 nome TEXT NOT NULL,
-                idade INTEGER NOT NULL
+                idade INTEGER NOT NULL,
+                email TEXT NOT NULL,
+                celular TEXT NOT NULL
                 )''')
-    con.commit()
-    con.close()
+    conn.commit()
+    conn.close()
 
 
-def inserir_usuario(nome, idade):
-    con = conectar()
-    cursor = con.cursor()
-    cursor.execute("INSERT INTO usuarios (nome, idade) VALUES (?, ?)", (nome, idade))
-    con.commit()
-    con.close()
+def inserir_usuario(nome, idade, email, celular):
+    conn = conectar()
+    with conn:
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO usuarios (nome, idade, email, celular) VALUES (?, ?, ?, ?)", (nome, idade, email, celular))
+    conn.close()
 
 
 def listar_usuarios():
-    con = conectar()
-    cursor = con.cursor()
-    cursor.execute("SELECT nome, idade FROM usuarios")
-    dados = cursor.fetchall() # Retorna uma lista de tuplas
-    con.close()
+    conn = conectar()
+    with conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT nome, idade, email, celular FROM usuarios")
+        dados = cursor.fetchall()
+    conn.close()
     return dados

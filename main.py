@@ -5,18 +5,20 @@ geral = []
 cadastros = {}
 criar_tabela()
 while True:
-    menuprincipal()
-    escolha = leiaInt('Opção escolhida: ')
+    menu_principal()
+    escolha = validar_int('Opção escolhida: ')
     if escolha == 1:
         cabeçalho('OPÇÃO 1')
         pessoas = listar_usuarios()
         for pessoa in pessoas:
-            print(f"{pessoa['nome']:.<30}{pessoa['idade']} anos")
+            print(f"{pessoa['nome']:<15} | {pessoa['idade']:<3} anos | {pessoa['email']:<30} | {pessoa['celular']}")
     elif escolha == 2:
         cabeçalho('OPÇÃO 2')
-        cadastros['Nome'] = leiaStr('Nome: ')
-        cadastros['Idade'] = leiaInt('Idade: ')
-        inserir_usuario(cadastros['Nome'], cadastros['Idade'])
+        cadastros['Nome'] = validar_str('Nome: ')
+        cadastros['Idade'] = validar_int('Idade: ')
+        cadastros['Email'] = validar_email('Email: ')
+        cadastros['Celular'] = validar_celular('Celular: ')
+        inserir_usuario(cadastros['Nome'], cadastros['Idade'], cadastros['Email'], cadastros['Celular'])
     elif escolha == 3:
         cabeçalho('Saindo do programa... Até breve!')
         break

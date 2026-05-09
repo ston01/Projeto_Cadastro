@@ -1,18 +1,18 @@
-menu_principal = 'MENU PRINCIPAL'
-largura = 40
+menuprincipal = 'MENU PRINCIPAL'
+largura = 75
 
 
-def menuprincipal():
+def menu_principal():
     print('='*largura)
-    print(menu_principal.center(largura))
-    print('='*40)
+    print(menuprincipal.center(largura))
+    print('='*largura)
     print(' [ 1 ] - Ver pessoas cadastradas')
     print(' [ 2 ] - Cadastrar nova pessoa')
     print(' [ 3 ] - Sair do sistema')
-    print('='*40)
+    print('='*largura)
 
 
-def cabeçalho(msg, larg=40):
+def cabeçalho(msg, larg=75):
     print('-'*larg)
     print(f'{msg.center(larg)}')
     print('-'*larg)
