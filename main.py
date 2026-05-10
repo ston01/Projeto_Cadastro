@@ -29,6 +29,15 @@ while True:
         else:
             print(f'Não encontramos ninguém com o nome "{nome_busca}"')
     elif escolha == 4:
+        cabeçalho('OPÇÃO 4')
+        id_excluir = validar_int('Digite o ID do usuário que deseja remover: ')
+        certeza = str(input(f'Tem certeza que deseja apagar o ID {id_excluir}? [S/N]: ')).upper().strip()
+        if certeza == 'S':
+            deletar_usuario(id_excluir)
+            print(f'Usuário {id_excluir} removido com sucesso!')
+        else:
+            print('Operação cancelada.') 
+    elif escolha == 5:
         cabeçalho('Saindo do programa... Até breve!')
         break
     else:

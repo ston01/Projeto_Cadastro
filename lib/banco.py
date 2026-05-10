@@ -45,3 +45,13 @@ def pesquisar_usuario(nome_busca):
         resultados = cursor.fetchall()
     conn.close()
     return resultados
+
+
+def deletar_usuario(id_usuario):
+    conn = conectar()
+    try:
+        with conn:
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM usuarios WHERE id = ?", (id_usuario,))
+    finally:
+        conn.close()
