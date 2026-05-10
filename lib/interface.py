@@ -8,7 +8,8 @@ def menu_principal():
     print('='*largura)
     print(' [ 1 ] - Ver pessoas cadastradas')
     print(' [ 2 ] - Cadastrar nova pessoa')
-    print(' [ 3 ] - Sair do sistema')
+    print(' [ 3 ] - Pesquisar cadastro')
+    print(' [ 4 ] - Sair do sistema')
     print('='*largura)
 
 
