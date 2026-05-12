@@ -1,3 +1,4 @@
+import pandas as pd
 import sqlite3
 def conectar():
     conn = sqlite3.connect('dados.db')
@@ -78,3 +79,15 @@ def atualizar_usuario(id_usuario, nome, idade, email, celular):
             cursor.execute(sql, (nome, idade, email, celular, id_usuario))
     finally:
         conn.close()
+
+
+def exportar_para_excel():
+    conn = conectar()
+    try:
+        df = pd.read_sql_query("SELECT * FROM usuarios", conn)
+        df.to_excel('relatorio_cadastros.xlsx', index=False)
+        print(f"Sucesso! {len(df)} cadastros foram exportados para 'relatorio_cadastros.xlsx'.")
+    except Exception as e:
+        print(f"Erro ao exportar para Excel: {e}")
+    finally:
+        conn.close()        

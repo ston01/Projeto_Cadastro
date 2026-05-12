@@ -49,8 +49,10 @@ while True:
             deletar_usuario(id_excluir)
             print(f'Usuário {id_excluir} removido com sucesso!')
         else:
-            print('Operação cancelada.') 
+            print('Operação cancelada.')
     elif escolha == 6:
+        exportar_para_excel() 
+    elif escolha == 7:
         cabeçalho('Saindo do programa... Até breve!')
         break
     else:

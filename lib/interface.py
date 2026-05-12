@@ -11,7 +11,8 @@ def menu_principal():
     print(' [ 3 ] - Novo cadastro')
     print(' [ 4 ] - Atualizar cadastro')
     print(' [ 5 ] - Deletar cadastro')
-    print(' [ 6 ] - Sair do programa')
+    print(' [ 6 ] - Exportar para excel')
+    print(' [ 7 ] - Sair do programa')
     print('='*largura)
 
 
