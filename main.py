@@ -38,6 +38,19 @@ while True:
         else:
             print('Operação cancelada.') 
     elif escolha == 5:
+        cabeçalho('OPÇÃO 5')
+        id_edit = validar_int('Digite o ID: ')
+        usuario = buscar_usuario(id_edit)
+        if usuario:
+            print(f"Usuário encontrado! (Pressione ENTER para manter o valor atual)")
+            novo_nome = input(f"Nome [{usuario[1]}]: ").strip() or usuario[1]
+            nova_idade = input(f"Idade [{usuario[2]}]: ") or usuario[2]
+            novo_email = input(f"Email [{usuario[3]}]: ").strip() or usuario[3]
+            novo_celular = input(f"Celular [{usuario[4]}]: ").strip() or usuario[4]
+            atualizar_usuario(id_edit, novo_nome, nova_idade, novo_email, novo_celular)
+        else:
+            print('ID não encontrado.')
+    elif escolha == 6:
         cabeçalho('Saindo do programa... Até breve!')
         break
     else:

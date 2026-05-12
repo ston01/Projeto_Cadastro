@@ -55,3 +55,26 @@ def deletar_usuario(id_usuario):
             cursor.execute("DELETE FROM usuarios WHERE id = ?", (id_usuario,))
     finally:
         conn.close()
+
+
+def buscar_usuario(id_usuario):
+    conn = conectar()
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM usuarios WHERE id = ?", (id_usuario,))
+        return cursor.fetchone()
+    finally:
+        conn.close()
+
+
+def atualizar_usuario(id_usuario, nome, idade, email, celular):
+    conn = conectar()
+    try:
+        with conn:
+            cursor = conn.cursor()
+            sql = """UPDATE usuarios 
+                     SET nome = ?, idade = ?, email = ?, celular = ? 
+                     WHERE id = ?"""
+            cursor.execute(sql, (nome, idade, email, celular, id_usuario))
+    finally:
+        conn.close()

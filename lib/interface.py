@@ -10,7 +10,8 @@ def menu_principal():
     print(' [ 2 ] - Cadastrar nova pessoa')
     print(' [ 3 ] - Pesquisar cadastro')
     print(' [ 4 ] - Deletar cadastro')
-    print(' [ 5 ] - Sair do programa')
+    print(' [ 5 ] - Atualizar cadastro')
+    print(' [ 6 ] - Sair do programa')
     print('='*largura)
 
 
