@@ -2,15 +2,15 @@ def validar_str(msg, obrigatorio=True):
     while True:
         try:
             string = str(input(msg)).strip()
+            if not obrigatorio and string == '':
+                return ''
             if string == '':
                 print('ERRO: O campo não pode ficar vazio!')
                 continue
-            if not obrigatorio and string == '':
-                return ''
+            return string
         except(KeyboardInterrupt):
             print('Usuário preferiu não digitar.')
             return '<desconhecido>'
-        return string
 
 
 def validar_int(msg, obrigatorio=True):
@@ -26,26 +26,24 @@ def validar_int(msg, obrigatorio=True):
         except(KeyboardInterrupt):
             print('Usuario preferiu não digitar.')
             return 0
-        else:
-            return valor
         
 
 def validar_email(msg, obrigatorio=True):
     while True:
         try:
             email = str(input(msg)).strip().lower()
-            if email == '':
+            if not obrigatorio and email == '':
+                return ''
+            if obrigatorio and email == '':
                 print('ERRO: O campo e-mail não pode ficar vazio!')
                 continue
             if '@' not in email or '.' not in email:
                 print('ERRO: Digite um e-mail válido (exemplo@dominio.com)!')
                 continue
-            if not obrigatorio and email == '':
-                return ''
+            return email
         except (KeyboardInterrupt):
-            print('Usuário preferiu não digitar o e-mail.')
+            print('Usuário preferiu não digitar.')
             return '<desconhecido>'
-        return email
     
 
 def validar_celular(msg, obrigatorio=True):
@@ -53,15 +51,15 @@ def validar_celular(msg, obrigatorio=True):
         try:
             entrada = str(input(msg)).strip()
             apenas_numeros = "".join(char for char in entrada if char.isdigit())
-            if apenas_numeros == '':
+            if not obrigatorio and apenas_numeros == '':
+                return ''
+            if obrigatorio and apenas_numeros == '':
                 print('ERRO: O campo celular não pode ficar vazio!')
                 continue
             if len(apenas_numeros) != 11:
                 print('ERRO: O celular deve ter 11 dígitos (DDD + número)!')
                 continue
-            if not obrigatorio and apenas_numeros == '':
-                return ''
+            return apenas_numeros
         except (KeyboardInterrupt):
-            print('Usuário preferiu não digitar o celular.')
+            print('Usuário preferiu não digitar.')
             return '00000000000'
-        return apenas_numeros

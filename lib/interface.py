@@ -1,5 +1,5 @@
 menuprincipal = 'MENU PRINCIPAL'
-largura = 75
+largura = 82
 
 
 def menu_principal():
@@ -16,7 +16,7 @@ def menu_principal():
     print('='*largura)
 
 
-def cabeçalho(msg, larg=75):
+def cabeçalho(msg, larg=82):
     print('-'*larg)
     print(f'{msg.center(larg)}')
     print('-'*larg)
