@@ -87,12 +87,16 @@ Se você deseja apenas testar ou utilizar o software no Windows sem precisar ins
 ---
 
 🧠 Aprendizados Relevantes
+
 Modularização Avançada: Entendimento prático de como separar códigos extensos em arquivos menores e reutilizáveis via pacotes (import).
 
 Experiência do Usuário (UX/UI no Terminal): Aprendi a controlar o fluxo de telas limpando buffers antigos e usando cores de alerta para guiar o usuário.
 
 Deploy e Distribuição: Utilização do PyInstaller para transformar scripts Python em executáveis prontos para uso em ambiente de produção do cliente final.
 
+---
+
 👤 Autor
+
 Desenvolvido com dedicação por Emanuel
 GitHub: @ston01
