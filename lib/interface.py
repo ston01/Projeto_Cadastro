@@ -1,4 +1,4 @@
-menuprincipal = 'MENU PRINCIPAL'
+menuprincipal = '\033[1mMENU PRINCIPAL\033[0m'
 largura = 82
 
 

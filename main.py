@@ -1,5 +1,5 @@
 import os
-from lib.validar import validar_int
+from lib.validar import validar_int, enter_continuar
 from lib.banco import criar_tabela, exportar_para_excel
 from lib.interface import menu_principal
 from lib import menus
@@ -23,5 +23,5 @@ while True:
     elif escolha == 7:
         menus.encerrar_programa()
     else:
-        print('ERRO: Digite uma opção válida!')
-    input('\nPressione Enter para continuar...')
+        print('\033[31mERRO: Digite uma opção válida!\033[0m')
+    enter_continuar()

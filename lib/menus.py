@@ -17,7 +17,7 @@ def pesquisar_cadastro():
         for pessoa in resultados:
             print(f" {pessoa['id']:<3} | {pessoa['nome']:<15} | {pessoa['idade']:<3} anos | {pessoa['email']:<30} | {pessoa['celular']}")
     else:
-        print(f'Não encontramos ninguém com o nome "{nome_busca}"')
+        print(f'\033[31mNão encontramos ninguém com o nome "{nome_busca}"\033[0m')
 
 
 def novo_cadastro():
@@ -27,6 +27,7 @@ def novo_cadastro():
     email = validar.validar_email('Email: ')
     celular = validar.validar_celular('Celular: ')
     banco.inserir_usuario(nome, idade, email, celular)
+    print(f'\033[32mUsuário "{nome}" cadastrado com sucesso!\033[0m')
 
 
 def atualizar_cadastro():
@@ -41,7 +42,7 @@ def atualizar_cadastro():
         novo_celular = validar.validar_celular(f"Celular [{usuario[4]}]: ", False).strip() or usuario[4]
         banco.atualizar_usuario(id_edit, novo_nome, nova_idade, novo_email, novo_celular)
     else:
-        print('ID não encontrado.')
+        print('\033[31mID não encontrado.\033[0m')
 
 
 def deletar_cadastro():
@@ -52,7 +53,7 @@ def deletar_cadastro():
         banco.deletar_usuario(id_excluir)
         print(f'Usuário {id_excluir} removido com sucesso!')
     else:
-        print('Operação cancelada.')
+        print('\033[31mOperação cancelada.\033[0m')
 
 
 def encerrar_programa():
