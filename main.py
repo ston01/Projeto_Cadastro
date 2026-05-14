@@ -1,9 +1,11 @@
+import os
 from lib.validar import validar_int
 from lib.banco import criar_tabela, exportar_para_excel
 from lib.interface import menu_principal
 from lib import menus
 criar_tabela()
 while True:
+    os.system('cls' if os.name == 'nt' else 'clear')
     menu_principal()
     escolha = validar_int('Opção escolhida: ')
     if escolha == 1:
@@ -22,3 +24,4 @@ while True:
         menus.encerrar_programa()
     else:
         print('ERRO: Digite uma opção válida!')
+    input('\nPressione Enter para continuar...')

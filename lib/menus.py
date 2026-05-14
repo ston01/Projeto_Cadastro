@@ -56,5 +56,5 @@ def deletar_cadastro():
 
 
 def encerrar_programa():
-    cabeçalho('Saindo do programa... Até breve!')
+    cabeçalho('Saindo do programa...')
     exit()
